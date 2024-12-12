@@ -1,0 +1,6 @@
+format_version = 2
+
+[apps.Demo]
+identifier = 'xyz.zaph.Demo'
+product = 'Demo'
+version = '0.1.0'
