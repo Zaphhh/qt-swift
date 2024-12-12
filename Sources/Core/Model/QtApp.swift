@@ -35,7 +35,7 @@ public class QtApp: AppStorage {
             .appendingPathComponent(id)
             .appendingPathComponent("database.sqlite")
             .path
-            
+
         DatabaseInformation.setPath(dataPath)
     }
 

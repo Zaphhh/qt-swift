@@ -8,12 +8,34 @@ struct helloWorld: App {
     var scene: Scene {
         Window("Main Window", id: "main") { _ in
             VStack {
-                Button("Click me") {
-                    print("I was clicked")
+                Label("Welcome to the Demo App")
+                    .alignment(.AlignHCenter)
+                    .wrappable()
+                
+                Button("New Document", icon: .default(.documentNew)) {
+                    print("New Document button clicked")
                 }
-                Label("Maybe this'll just work nice n all")
+                .alignment(.AlignHCenter)
+                
+                Button("Open Document", icon: .default(.documentOpen)) {
+                    print("Open Document button clicked")
+                }
+                .alignment(.AlignHCenter)
+                
+                Button("Save Document", icon: .default(.documentSave)) {
+                    print("Save Document button clicked")
+                }
+                .alignment(.AlignHCenter)
+                
+                Button("Print Document", icon: .default(.documentPrint)) {
+                    print("Print Document button clicked")
+                }
+                .alignment(.AlignHCenter)
+                
+                Label("Thank you for using the Demo App")
+                    .alignment(.AlignHCenter)
+                    .wrappable()
             }
         }
     }
 }
-

@@ -8,7 +8,7 @@
 import Qlift
 
 public struct VStack: QtWidget, Wrapper {
-    
+
     var content: Body
 
     public init(@ViewBuilder content: @escaping () -> Body) {
@@ -19,23 +19,34 @@ public struct VStack: QtWidget, Wrapper {
         data: WidgetData,
         type: Data.Type
     ) -> ViewStorage where Data: ViewRenderData {
-        
+
         if content.count == 1, let element = content.first {
             return element.storage(data: data, type: type)
         }
 
         let container = QWidget()
         let layout = QVBoxLayout()
-        
+
+        layout.add(item: QSpacerItem(width: 0, height: 0, horizontalPolicy: .Minimum, verticalPolicy: .Expanding))
+
         var storages: [ViewStorage] = []
 
         for element in content {
             let storage = element.storage(data: data, type: type)
             storages.append(storage)
             if let widget = storage.pointer as? QWidget {
-                layout.add(widget: widget, alignment: .AlignHCenter)
+                if let button = widget as? QPushButton,
+                    let buttonView = element as? Button
+                {
+                    layout.add(widget: widget, alignment: buttonView.alignment)
+                } else {
+                    layout.add(widget: widget)
+                }
+                widget.sizePolicy = QSizePolicy(horizontal: .Expanding, vertical: .Preferred)
             }
         }
+
+        layout.add(item: QSpacerItem(width: 0, height: 0, horizontalPolicy: .Minimum, verticalPolicy: .Expanding))
 
         container.layout = layout
 

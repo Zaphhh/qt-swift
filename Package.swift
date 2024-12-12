@@ -1,8 +1,7 @@
 // swift-tools-version: 6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
-@preconcurrency
-import PackageDescription
+@preconcurrency import PackageDescription
 
 let package = Package(
     name: "Qt",
@@ -40,9 +39,11 @@ let package = Package(
                 .product(name: "Qlift", package: "Qlift"),
             ]
         ),
-        .executableTarget(name: "Old", dependencies: [
-            .product(name: "Qlift", package: "Qlift"),
-        ]),
+        .executableTarget(
+            name: "Old",
+            dependencies: [
+                .product(name: "Qlift", package: "Qlift")
+            ]),
         .executableTarget(
             name: "Demo",
             dependencies: [
