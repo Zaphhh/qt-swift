@@ -4,6 +4,7 @@
 //
 //  Created by Zaph on 12/12/2024.
 //
+
 import Qlift
 
 public struct Label: QtWidget {
@@ -16,6 +17,9 @@ public struct Label: QtWidget {
     }
 
     public func initializeWidget() -> Any {
-        QLabel(text: label)
+        let label = QLabel(text: label)
+        label.alignment = .AlignHCenter
+        return label
     }
 }
+

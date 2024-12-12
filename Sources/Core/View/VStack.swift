@@ -4,10 +4,11 @@
 //
 //  Created by Zaph on 11/12/2024.
 //
+
 import Qlift
 
 public struct VStack: QtWidget, Wrapper {
-
+    
     var content: Body
 
     public init(@ViewBuilder content: @escaping () -> Body) {
@@ -24,19 +25,21 @@ public struct VStack: QtWidget, Wrapper {
         }
 
         let container = QWidget()
-        let layout = QVBoxLayout(parent: container)
-
-        layout.spacing = 0
-        layout.contentsMargins = .init(left: 0, top: 0, right: 0, bottom: 0)
+        let layout = QVBoxLayout()
+        
+        var storages: [ViewStorage] = []
 
         for element in content {
             let storage = element.storage(data: data, type: type)
+            storages.append(storage)
             if let widget = storage.pointer as? QWidget {
-                layout.add(widget: widget)
+                layout.add(widget: widget, alignment: .AlignHCenter)
             }
         }
 
-        return ViewStorage(container, content: [.mainContent: content.map { $0.storage(data: data, type: type) }])
+        container.layout = layout
+
+        return ViewStorage(container, content: [.mainContent: storages])
     }
 
     public func update<Data>(

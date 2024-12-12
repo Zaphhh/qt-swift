@@ -63,19 +63,18 @@ public struct Window: QtSceneElement {
         let storage = SceneStorage(id: id, pointer: window) {
             window.window.show()
         }
-
+    
         let contentStorage = content(window)
             .storage(data: .init(sceneStorage: storage, appStorage: app), type: QtMainView.self)
-
+    
         if let widget = contentStorage.pointer as? QWidget {
-            window.central = widget
             window.window.centralWidget = widget
         }
-
+    
         storage.content[.mainContent] = [contentStorage]
-
+    
         window.window.windowTitle = title
-
+    
         return storage
     }
 

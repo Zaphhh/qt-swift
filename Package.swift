@@ -40,6 +40,9 @@ let package = Package(
                 .product(name: "Qlift", package: "Qlift"),
             ]
         ),
+        .executableTarget(name: "Old", dependencies: [
+            .product(name: "Qlift", package: "Qlift"),
+        ]),
         .executableTarget(
             name: "Demo",
             dependencies: [

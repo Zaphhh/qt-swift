@@ -8,7 +8,10 @@ struct helloWorld: App {
     var scene: Scene {
         Window("Main Window", id: "main") { _ in
             VStack {
-                Label("Hello, world!")
+                Button("Click me") {
+                    print("I was clicked")
+                }
+                Label("Maybe this'll just work nice n all")
             }
         }
     }
