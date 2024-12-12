@@ -1,0 +1,51 @@
+{
+  "originHash" : "11814aef7e56730399cf0d4ba48566e567d8889df3a5eb863ac18dd105af34c5",
+  "pins" : [
+    {
+      "identity" : "levenshtein-transformations",
+      "kind" : "remoteSourceControl",
+      "location" : "https://git.aparoksha.dev/aparoksha/levenshtein-transformations",
+      "state" : {
+        "branch" : "main",
+        "revision" : "706806433fc6c156603502277f253646f08f013f"
+      }
+    },
+    {
+      "identity" : "meta",
+      "kind" : "remoteSourceControl",
+      "location" : "https://git.aparoksha.dev/aparoksha/meta",
+      "state" : {
+        "branch" : "main",
+        "revision" : "681a51110db54cfb48dd7eb8413e310a31fc3c2d"
+      }
+    },
+    {
+      "identity" : "meta-sqlite",
+      "kind" : "remoteSourceControl",
+      "location" : "https://git.aparoksha.dev/aparoksha/meta-sqlite",
+      "state" : {
+        "branch" : "main",
+        "revision" : "cd48784024e43db8f1ac32572b052ed388dd9c42"
+      }
+    },
+    {
+      "identity" : "qlift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MatuaDoc/qlift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ef54bfe720ce3d6f49d2fbf0c9bacde8555adb70"
+      }
+    },
+    {
+      "identity" : "sqlite.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stephencelis/SQLite.swift",
+      "state" : {
+        "revision" : "a95fc6df17d108bd99210db5e8a9bac90fe984b8",
+        "version" : "0.15.3"
+      }
+    }
+  ],
+  "version" : 3
+}

@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:qt-swift}",
+            "name": "Debug Demo",
+            "program": "${workspaceFolder:qt-swift}/.build/debug/Demo",
+            "preLaunchTask": "swift: Build Debug Demo"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:qt-swift}",
+            "name": "Release Demo",
+            "program": "${workspaceFolder:qt-swift}/.build/release/Demo",
+            "preLaunchTask": "swift: Build Release Demo"
+        }
+    ]
+}
