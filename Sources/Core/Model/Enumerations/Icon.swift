@@ -10,17 +10,17 @@ import Qlift
 /// Represents system and custom icons
 public enum Icon {
     /// A preinstalled icon.
-    case `default`(DefaultIcon)
+    case `default`(icon: DefaultIcon)
     /// A custom icon.
     case custom(String)
-    
+
     var qicon: QIcon {
         switch self {
         case .default(let icon): return QIcon(theme: icon.string)
         case .custom(let path): return QIcon(fileName: path)
         }
     }
-    
+
     /// A string representation of the icon.
     public var string: String {
         switch self {
@@ -30,7 +30,7 @@ public enum Icon {
             return name
         }
     }
-    
+
     /// A preinstalled icon.
     public enum DefaultIcon: String, CaseIterable {
         // Document Actions
@@ -42,7 +42,7 @@ public enum Icon {
         case documentProperties
         case documentSave
         case documentSend
-        
+
         // Edit Actions
         case editClear
         case editCopy
@@ -52,7 +52,7 @@ public enum Icon {
         case editPaste
         case editRedo
         case editUndo
-        
+
         // Format Actions
         case formatIndentLess
         case formatIndentMore
@@ -64,14 +64,14 @@ public enum Icon {
         case formatTextItalic
         case formatTextUnderline
         case formatTextStrikethrough
-        
+
         // Navigation
         case goDown
         case goHome
         case goNext
         case goPrevious
         case goUp
-        
+
         // Media Controls
         case mediaEject
         case mediaPlaybackPause
@@ -82,18 +82,18 @@ public enum Icon {
         case mediaSeekForward
         case mediaSkipBackward
         case mediaSkipForward
-        
+
         // System
         case systemLockScreen
         case systemLogOut
         case systemSearch
         case systemReboot
         case systemShutdown
-        
+
         // Window
         case windowClose
         case windowNew
-        
+
         // View
         case viewFullscreen
         case viewRefresh
@@ -101,7 +101,7 @@ public enum Icon {
         case zoomFitBest
         case zoomIn
         case zoomOut
-        
+
         // Status
         case audioVolumeHigh
         case audioVolumeLow
@@ -109,7 +109,7 @@ public enum Icon {
         case audioVolumeMuted
         case batteryLow
         case batteryCaution
-        
+
         // Devices
         case audioCard
         case audioInputMicrophone
@@ -119,7 +119,7 @@ public enum Icon {
         case driveHarddisk
         case driveOptical
         case printer
-        
+
         // Weather
         case weatherClear
         case weatherClearNight
@@ -128,11 +128,12 @@ public enum Icon {
         case weatherShowers
         case weatherSnow
         case weatherStorm
-        
+
         /// A string representation of the icon.
         public var string: String {
             var string = rawValue
-            let result = string
+            let result =
+                string
                 .map { letter in
                     if letter.isUppercase {
                         return "-\(letter)"
@@ -148,4 +149,3 @@ public enum Icon {
         }
     }
 }
-

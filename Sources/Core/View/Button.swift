@@ -39,7 +39,7 @@ public struct Button: QtWidget {
             action()
         }
 
-        button.sizePolicy = QSizePolicy(horizontal: .Minimum, vertical: .Fixed)
+        button.sizePolicy = QSizePolicy(horizontal: .Preferred, vertical: .Fixed)
         return ViewStorage(button)
     }
 

@@ -7,7 +7,7 @@
 
 import Qlift
 
-public struct Label: QtWidget {
+public struct Text: QtWidget {
 
     var label: String
     var alignment: Qt.Alignment = .AlignHCenter
@@ -24,6 +24,8 @@ public struct Label: QtWidget {
         let label = QLabel(text: self.label)
         label.alignment = alignment
         label.wordWrap = wordWrap
+        label.sizePolicy = QSizePolicy(horizontal: .Preferred, vertical: .Fixed)
+
         return ViewStorage(label)
     }
 

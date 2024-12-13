@@ -1,57 +1,31 @@
 import Qlift
 
-// Initialize application
 let app = QApplication()
-
-// Create main window
 let window = QMainWindow()
 window.windowTitle = "Main Window"
+window.resize(width: 800, height: 400)
 
-// Create central widget and set it
-let centralWidget = QWidget()
-window.centralWidget = centralWidget
+let scrollArea = QScrollArea()
+window.centralWidget = scrollArea
 
-// Create vertical layout
-let layout = QVBoxLayout()
-centralWidget.layout = layout
+let contentWidget = QWidget()
+let layout = QHBoxLayout()
+contentWidget.layout = layout
 
-// Create and configure label
-let welcomeLabel = QLabel(text: "Welcome to the Demo App")
-welcomeLabel.alignment = .AlignHCenter
-welcomeLabel.wordWrap = true
-layout.add(widget: welcomeLabel, alignment: .AlignHCenter)
+// Have to keep a reference to the labels
+var lblArray: [QLabel] = []
 
-// Create buttons with icons
-let newDocumentButton = QPushButton(icon: QIcon(theme: "document-new"), text: "New Document")
-newDocumentButton.connectClicked {
-    print("New Document button clicked")
+for i in 1...50 {
+    let label = QLabel(text: "Item \(i)")
+    label.styleSheet = "padding: 10px;"
+    lblArray.append(label)
+    layout.add(widget: label)
 }
-layout.add(widget: newDocumentButton, alignment: .AlignHCenter)
 
-let openDocumentButton = QPushButton(icon: QIcon(theme: "document-open"), text: "Open Document")
-openDocumentButton.connectClicked {
-    print("Open Document button clicked")
-}
-layout.add(widget: openDocumentButton, alignment: .AlignHCenter)
+scrollArea.setWidget(contentWidget)
+scrollArea.widgetResizable = true
+scrollArea.horizontalScrollBarPolicy = .ScrollBarAsNeeded
+scrollArea.verticalScrollBarPolicy = .ScrollBarAlwaysOff
 
-let saveDocumentButton = QPushButton(icon: QIcon(theme: "document-save"), text: "Save Document")
-saveDocumentButton.connectClicked {
-    print("Save Document button clicked")
-}
-layout.add(widget: saveDocumentButton, alignment: .AlignHCenter)
-
-let printDocumentButton = QPushButton(icon: QIcon(theme: "document-print"), text: "Print Document")
-printDocumentButton.connectClicked {
-    print("Print Document button clicked")
-}
-layout.add(widget: printDocumentButton, alignment: .AlignHCenter)
-
-// Create and configure label
-let thankYouLabel = QLabel(text: "Thank you for using the Demo App")
-thankYouLabel.alignment = .AlignHCenter
-thankYouLabel.wordWrap = true
-layout.add(widget: thankYouLabel, alignment: .AlignHCenter)
-
-// Show window and run app
 window.show()
 _ = app.exec()

@@ -12,7 +12,7 @@ public enum Edge: Int {
     case top
     case right
     case bottom
-    
+
     var marginIndex: Int {
         self.rawValue
     }
@@ -27,14 +27,14 @@ extension [Edge] {
     public static var top: Self { [.top] }
     /// Bottom edge only
     public static var bottom: Self { [.bottom] }
-    
+
     /// Both horizontal edges
     public static var horizontal: Self { left + right }
     /// Both vertical edges
     public static var vertical: Self { top + bottom }
     /// All edges
     public static var all: Self { vertical + horizontal }
-    
+
     /// Set margins for specified edges
     /// - Parameter value: The margin value
     /// - Returns: Tuple of (left, top, right, bottom) margins

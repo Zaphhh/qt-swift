@@ -42,6 +42,7 @@ public class QtApp: AppStorage {
     // MARK: - App Lifecycle
     public func run(setup: @escaping () -> Void) {
         application = QApplication()
+
         setup()
         _ = application?.exec()
     }
